@@ -8,7 +8,7 @@ const App = (props) => {
   const calendarJs = new CalendarJs(monthChange);
 
   calendarJs.calenarLoop();
-
+  console.log(calendarJs);
   const monthChangeFn = (e) => (e.target.id === "prev" ? setMonthChange(monthChange - 1) : setMonthChange(monthChange + 1));
 
   return (
