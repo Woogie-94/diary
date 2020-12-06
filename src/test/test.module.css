@@ -1,0 +1,17 @@
+
+body {position: relative; width: 100%; height: 100vh; background: #999; }
+
+.calendar {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 90%; background: rgb(252, 251, 248); border-radius: 5px;}
+.week {width: 100%; height: 14.285714%;}
+.day {font-family: QM; float: left; width: 12.5%; height: 100%; padding: 10px; border-bottom: 1px solid #999; border-right: 1px solid #999; cursor: pointer;}
+
+
+
+
+
+
+
+
+
+
+

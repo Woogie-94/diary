@@ -1,0 +1,5 @@
+.day {font-family: QM; float: left; width: 12.5%; height: 100%; padding: 10px; border-bottom: 1px solid #999; border-right: 1px solid #999; cursor: pointer;}
+.on:hover {background: rgba(0,0,0,0.05); transition: 0.2s;}
+
+.off {color: #aaa; cursor: default;}
+
