@@ -1,15 +1,17 @@
-const calendar = document.getElementById("cal");
-let paintingControl = false;
-calendar.addEventListener("mousedown", (e) => {
-  paintingControl = !paintingControl;
-  console.log(e);
-});
+class a {
+  constructor() {
+    this.name = "1";
+  }
 
-calendar.addEventListener("mousemove", (e) => {
-  if (paintingControl) console.log(e);
-});
+  a(name) {
+    console.log(name);
+  }
 
-calendar.addEventListener("mouseup", (e) => {
-  paintingControl = !paintingControl;
-  console.log("end");
-});
+  b() {
+    this.a("hi");
+  }
+}
+
+const aa = new a();
+
+aa.b();

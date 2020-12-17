@@ -1,0 +1,21 @@
+.container {position: absolute; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); cursor: pointer;}
+.note {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; height: 800px; padding-top: 120px; background: rgb(252, 251, 248); border-radius: 5px; cursor: default;}
+.note::after {content: ""; display: block; position: absolute; top: 0; left: 49.9%; width: 110px; height: 120px; border-left: 1px solid #999; border-right: 1px solid #999;}
+.note::before {content: ""; display: block; position: absolute; top: 0; left: 0; width: 110px; height: 120px; border-right: 1px solid #999;}
+
+.currentWeek {position: absolute; top: 80px; left: 130px; font-family: NotoKR_L; font-size: 26px;}
+.currentWeek::after {content: ""; display: block; position: absolute; top: 60%; right: -30px; width: 23px; height: 1px; background: #000;}
+.weekly_list {width: 100%; height: 100%; border-top: 1px solid #999;}
+.list_item {float: left; position: relative; width: 50%; height: 25%; border-bottom: 1px solid #999; border-right: 1px solid #999;}
+.item_day {display: block; position: absolute; top: 0; left: 0; width: 111px; height: 100%; border-right: 1px solid #999;}
+
+
+.checklist {padding-left: 111px; overflow: hidden;}
+.input_add {width: 100%; height: 40px; background: rgba(0, 0, 0, 0.1);}
+.input_add:hover {background: rgba(0, 0, 0, 0.15); transition: .4s;}
+
+
+
+
+
+

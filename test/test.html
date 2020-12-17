@@ -1,86 +1,50 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./test.css">
-    <link rel="stylesheet" href="./reset.css">
-    <title>Document</title>
-</head>
-<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-    <div id="cal" class="calendar" >
-        <div class="week">
-            <div class="day"><p>2020</p>12월</div>
-            <div class="day">Sunday</div>
-            <div class="day">Monday</div>
-            <div class="day">Tuesday</div>
-            <div class="day">Wednesday</div>
-            <div class="day">Thursday</div>
-            <div class="day">Friday</div>
-            <div class="day">Saturday</div>
-        </div>
-        <div class="week">
-            <div class="day"></div>
-            <div class="day off">29</div>
-            <div class="day off">30</div>
-            <div class="day">1</div>
-            <div class="day">2</div>
-            <div class="day">3</div>
-            <div class="day">4</div>
-            <div class="day">5</div>
-        </div>
-        <div class="week">
-            <div class="day"></div>
-            <div class="day">6</div>
-            <div class="day">7</div>
-            <div class="day">8</div>
-            <div class="day">9</div>
-            <div class="day">10</div>
-            <div class="day">11</div>
-            <div class="day">12</div>
-        </div> 
-        <div class="week">
-            <div class="day"></div>
-            <div class="day">13</div>
-            <div class="day">14</div>
-            <div class="day">15</div>
-            <div class="day">16</div>
-            <div class="day">17</div>
-            <div class="day">18</div>
-            <div class="day">19</div>                  
-        </div> 
-        <div class="week">
-            <div class="day"></div>
-            <div class="day">20</div>
-            <div class="day">21</div>
-            <div class="day">22</div>
-            <div class="day">23</div>
-            <div class="day">24</div>
-            <div class="day">25</div>
-            <div class="day">26</div>
-        </div>  
-        <div class="week">
-            <div class="day"></div>
-            <div class="day">27</div>
-            <div class="day">28</div>
-            <div class="day">29</div>
-            <div class="day">30</div>
-            <div class="day">31</div>
-            <div class="day off">1</div>
-            <div class="day off">2</div>
-        </div>  
-        <div class="week">
-            <div class="day"></div>
-            <div class="day off">3</div>
-            <div class="day off">5</div>
-            <div class="day off">6</div>
-            <div class="day off">4</div>
-            <div class="day off">7</div>
-            <div class="day off">8</div>
-            <div class="day off">9</div>
-        </div>  
-    </div>
-    <div id="datDetail" class="dayDetail_container"></div>
+<meta charset="UTF-8">
+<title>마우스 드래깅으로 캔버스에 그림 그리기</title></head>
+<body onload="init()">
+<h3>마우스를 누른 채 드래깅하여 그림 그려 보세요</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue" width="400" height="300">
+
+</canvas>
+<script>
+
+function init() {
+    const canvas = document.getElementById("myCanvas");
+    context = canvas.getContext("2d");
+ 
+    context.lineWidth = 2; // 선 굵기를 2로 설정
+    context.strokeStyle = "blue";
+    console.log(context);
+    // 마우스 리스너 등록. e는 MouseEvent 객체
+    canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+    canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+    canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+    canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+}
+ 
+var startX=0, startY=0; // 드래깅동안, 처음 마우스가 눌러진 좌표
+var drawing=false;
+function draw(curX, curY) {
+    context.beginPath();
+    context.moveTo(startX, startY);
+    context.lineTo(curX, curY);
+    context.stroke();
+}
+function down(e) {
+    startX = e.offsetX; startY = e.offsetY;
+    drawing = true;
+}
+function up(e) { drawing = false; }
+function move(e) {
+    if(!drawing) return; // 마우스가 눌러지지 않았으면 리턴
+    var curX = e.offsetX, curY = e.offsetY;
+    draw(curX, curY);
+    startX = curX; startY = curY;
+}
+function out(e) { drawing = false; }
+</script>
 </body>
-<script src="./test.js"></script>
 </html>

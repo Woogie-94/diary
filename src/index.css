@@ -7,3 +7,5 @@
     font-family: QM;
     src: url(./font/Quicksand-Medium.ttf);
 }
+
+body {overflow: hidden;}

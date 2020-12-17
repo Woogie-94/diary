@@ -1,0 +1,8 @@
+.list_item {float: left; position: relative; width: 50%; height: 25%; border-bottom: 1px solid #999; border-right: 1px solid #999;}
+.item_day {float: left; position: relative; width: 16.5%; height: 100%; font-family: QM; text-align: center; font-size: 17px; border-right: 1px solid #999;}
+.item_day_text_box {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.item_day_text_box p:first-child {margin-bottom: 10px;}
+
+.area_box {float: left; width: 83.5%; height: 100%; padding: 20px;}
+.notearea {width: 100%; height: 100%; font-family: NotoKR_L; font-size: 18px; letter-spacing: 1px; background: rgb(252, 251, 248); border: none; outline: none; resize: none;}
+

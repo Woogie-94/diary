@@ -1,28 +1,42 @@
-import React from "react";
+import React, { memo, useRef, useState } from "react";
+import Canvas from "../canvas/canvas";
 import Week from "../week/week";
 import styles from "./calendar.module.css";
 
-const Calendar = ({ calendarData }) => {
+const Calendar = memo(({ calendarData, setDayData, dayData, weekData, setWeekData, setOpenCheck }) => {
+  const canvasRef = useRef();
+
+  const cl = (e) => {
+    canvasRef.current.style.zIndex = "10";
+    console.log(canvasRef.current);
+  };
+
   return (
-    <div className={styles.calendar}>
-      <div className={styles.week}>
-        <div className={`${styles.ym} ${styles.item}`}>
-          <p>{calendarData.today.format("YYYY")}</p>
-          {`${calendarData.today.format("MM")}월`}
+    <>
+      <button className={styles.btn} onClick={cl}>
+        111111
+      </button>
+      <Canvas useRef={canvasRef} id={styles.main_canvas} />
+      <div className={styles.calendar}>
+        <div className={styles.week}>
+          <div className={`${styles.ym} ${styles.item}`}>
+            <p>{calendarData.today.format("YYYY")}</p>
+            {`${calendarData.today.format("MM")}월`}
+          </div>
+          <div className={styles.item}>Sunday</div>
+          <div className={styles.item}>Monday</div>
+          <div className={styles.item}>Tuesday</div>
+          <div className={styles.item}>Wednesday</div>
+          <div className={styles.item}>Thursday</div>
+          <div className={styles.item}>Friday</div>
+          <div className={styles.item}>Saturday</div>
         </div>
-        <div className={styles.item}>Sunday</div>
-        <div className={styles.item}>Monday</div>
-        <div className={styles.item}>Tuesday</div>
-        <div className={styles.item}>Wednesday</div>
-        <div className={styles.item}>Thursday</div>
-        <div className={styles.item}>Friday</div>
-        <div className={styles.item}>Saturday</div>
+        {calendarData.calendarArr.map((week, i) => {
+          return <Week className={styles.week} calendarData={calendarData} week={week} key={i} dayData={dayData} setDayData={setDayData} weekData={weekData} setWeekData={setWeekData} setOpenCheck={setOpenCheck} />;
+        })}
       </div>
-      {calendarData.calendarArr.map((week, i) => {
-        return <Week className={styles.week} calendarData={calendarData} week={week} key={i} />;
-      })}
-    </div>
+    </>
   );
-};
+});
 
 export default Calendar;
