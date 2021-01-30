@@ -12,8 +12,20 @@ const Week = memo(({ week, calendarData: { today }, dayData, setDayData, setOpen
   };
 
   return (
-    <div className={styles.week}>
-      <div className={styles.weekly} onClick={click}></div>
+    <div className={`${styles.week} clear_fix`}>
+      <div className={styles.weekly} onClick={click}>
+        <ul className={`${styles.list_box} `}>
+          {weekData.map(
+            (data) =>
+              data.id === `week${week[0].format("YYYYMMDD")}` &&
+              data.checkList.map((list, i) => (
+                <li key={i} className={`${styles.list} ${data.checked[i] && styles.list_checked}`}>
+                  - {list}
+                </li>
+              ))
+          )}
+        </ul>
+      </div>
       {week.map((day, i) => {
         return <Day day={day} currentM={day.format("MM")} toDayM={today.format("MM")} key={i} dayData={dayData} setDayData={setDayData} setOpenCheck={setOpenCheck} />;
       })}

@@ -98,7 +98,7 @@ const Canvas = ({ useRef, id }) => {
   //   function out(e) {
   //     drawing = !drawing;
   //   }
-  return <canvas ref={useRef} className={id} width="1536" height="840" />;
+  return <canvas ref={useRef} className={id} width="960" height="600" />;
 };
 
 export default Canvas;

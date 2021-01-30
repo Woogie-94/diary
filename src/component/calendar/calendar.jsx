@@ -1,24 +1,12 @@
-import React, { memo, useRef, useState } from "react";
-import Canvas from "../canvas/canvas";
+import React, { memo } from "react";
 import Week from "../week/week";
 import styles from "./calendar.module.css";
 
 const Calendar = memo(({ calendarData, setDayData, dayData, weekData, setWeekData, setOpenCheck }) => {
-  const canvasRef = useRef();
-
-  const cl = (e) => {
-    canvasRef.current.style.zIndex = "10";
-    console.log(canvasRef.current);
-  };
-
   return (
     <>
-      <button className={styles.btn} onClick={cl}>
-        111111
-      </button>
-      <Canvas useRef={canvasRef} id={styles.main_canvas} />
       <div className={styles.calendar}>
-        <div className={styles.week}>
+        <div className={`${styles.week} clear_fix`}>
           <div className={`${styles.ym} ${styles.item}`}>
             <p>{calendarData.today.format("YYYY")}</p>
             {`${calendarData.today.format("MM")}월`}

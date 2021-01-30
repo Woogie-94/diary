@@ -8,12 +8,15 @@
 
 .content {position: relative; width: 100%; height: 100%; padding: 29px; border-top: 1px solid #999; border-bottom: 1px solid #999;}
 .checklist {padding: 0; overflow: hidden;}
-.input_add {width: 100%; height: 90px; background: rgba(0, 0, 0, 0.1);}
+.input_add {position: relative; width: 100%; height: 90px; background: rgba(0, 0, 0, 0.1);}
 .input_add:hover {background: rgba(0, 0, 0, 0.15); transition: .4s;}
 
 .notearea {width: 100%; height: 100%; font-family: NotoKR_L; font-size: 18px; letter-spacing: 1px; background: rgb(252, 251, 248); border: none; outline: none; resize: none;}
 
-
+/* note_checklist */
+.note_container {width: 100%; height: 92px; padding: 29px;} 
+.note_check {margin-top: 7px;}
+.note_input {width: 90%; font-size: 18px;}
 
 
 

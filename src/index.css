@@ -8,4 +8,5 @@
     src: url(./font/Quicksand-Medium.ttf);
 }
 
-body {overflow: hidden;}
+body {overflow: hidden; position: relative; width: 100%; height: 100vh; background: #999;}
+.clear_fix::after {content: ''; display: block; clear: both;}

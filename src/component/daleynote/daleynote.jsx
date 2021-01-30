@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import DaleynoteChecklist from "../daleynote_checklist/daleynote_checklist";
+import NoteChecklist from "../note_checklist/note_checklist";
 import styles from "./daleynote.module.css";
 
 const Daleynote = ({ data, setOpenCheck, dayData, setDayData }) => {
@@ -8,6 +8,11 @@ const Daleynote = ({ data, setOpenCheck, dayData, setDayData }) => {
   const [freeNoteVal, setFreeNoteVal] = useState(data.freenote || "");
   const checkListCount = Array(stat).fill(0);
   const areaRef = useRef();
+  const noteStyles = {
+    container: styles.note_container,
+    check: styles.note_check,
+    input: styles.note_input,
+  };
 
   const inputAdd = () => {
     setStat(stat + 1);
@@ -27,7 +32,7 @@ const Daleynote = ({ data, setOpenCheck, dayData, setDayData }) => {
 
   return (
     <div className={styles.container} id="dim" onClick={click}>
-      <div className={styles.note}>
+      <div className={`${styles.note} clear_fix`}>
         <p>
           {data.time.format("MM")}
           <span>월 </span>
@@ -37,7 +42,7 @@ const Daleynote = ({ data, setOpenCheck, dayData, setDayData }) => {
         <div>
           <div className={`${styles.checklist} ${styles.content}`}>
             {checkListCount.map((el, i) => (
-              <DaleynoteChecklist key={i} listId={i} chkListText={chkListText} setChkListText={setChkListText} data={data} />
+              <NoteChecklist key={i} listId={i} chkListText={chkListText} setChkListText={setChkListText} data={data} noteStyles={noteStyles} />
             ))}
             <div className={styles.input_add} onClick={inputAdd}></div>
           </div>

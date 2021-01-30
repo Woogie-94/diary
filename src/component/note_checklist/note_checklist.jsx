@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./daleynote_checklist.module.css";
+import styles from "./note_checklist.module.css";
 
-
-const DaleynoteChecklist = ({ listId, chkListText, data }) => {
+const DaleynoteChecklist = ({ listId, chkListText, data, noteStyles }) => {
   const inputRef = useRef();
   const currentCheckList = data.checkList !== undefined ? data.checkList[listId] : "";
   const [val, setVal] = useState(currentCheckList || "");
@@ -23,9 +22,9 @@ const DaleynoteChecklist = ({ listId, chkListText, data }) => {
   };
 
   return (
-    <div className={styles.container}>
-      <button className={`${styles.check} ${data.checked[listId] && styles.checked}`} onClick={cheked} />
-      <input ref={inputRef} type="text" className={`${styles.input}`} value={val} onChange={inputChange} />
+    <div className={noteStyles.container}>
+      <button className={`${styles.check} ${data.checked[listId] && styles.checked} ${noteStyles.check}`} onClick={cheked} />
+      <input ref={inputRef} type="text" className={`${styles.input} ${noteStyles.input}`} value={val} onChange={inputChange} />
     </div>
   );
 };

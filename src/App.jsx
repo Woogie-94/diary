@@ -46,7 +46,7 @@ const App = (props) => {
       if (targetId === "next") pointer.innerHTML = `${calendarJs.today.clone().add(1, "month").format("M")}월`;
     } else pointer.style.display = `none`;
   };
-
+  // test.map((el) => (el.id === calendarJs.today.format("YYYYMMDD") ? el.tag : save()))
   return (
     <div>
       <div id="pointer" className={styles.pointer}></div>
@@ -54,7 +54,6 @@ const App = (props) => {
         <button className={styles.prevBtn} id="prev" onMouseMove={monthChangePointer} onMouseOut={monthChangePointer}></button>
         <button className={styles.nextBtn} id="next" onMouseMove={monthChangePointer} onMouseOut={monthChangePointer}></button>
       </div>
-
       <Calendar calendarData={calendarJs} dayData={dayData} setDayData={setDayData} weekData={weekData} setWeekData={setWeekData} setOpenCheck={setOpenCheck} />
       {dayData.map((data) => data.id === openCheck.id && <Daleynote key={openCheck.id} data={data} setOpenCheck={setOpenCheck} dayData={dayData} setDayData={setDayData} />)}
       {weekData.map((data) => data.id === openCheck.id && <Weeklynote key={openCheck.id} data={data} setOpenCheck={setOpenCheck} weekData={weekData} setWeekData={setWeekData} />)}
