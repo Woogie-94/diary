@@ -13,11 +13,13 @@ const App = (props) => {
 
   const calendarJs = new CalendarJs(monthChange);
   calendarJs.calenarLoop();
+  console.log(calendarJs.calendarArr);
 
   useEffect(() => {
     console.log(weekData);
+    console.log(dayData);
     console.log(openCheck);
-  }, [weekData, openCheck]);
+  }, [weekData, openCheck, dayData]);
 
   const monthChangeFn = (e) => {
     const pointer = document.getElementById("pointer");
